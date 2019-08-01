@@ -1,3 +1,67 @@
-<p>
-  graficas1 works!
-</p>
+<div class="row">
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                
+              <app-grafico-dona [chartData]="this.graficos.grafico1.data" 
+                                [chartLabels]="this.graficos.grafico1.labels" 
+                                [chartType]="this.graficos.grafico1.type"
+                                [leyenda]="this.graficos.grafico1.leyenda"
+              >
+              </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                
+              <app-grafico-dona [chartData]="this.graficos.grafico2.data" 
+                                [chartLabels]="this.graficos.grafico2.labels" 
+                                [chartType]="this.graficos.grafico2.type"
+                                [leyenda]="this.graficos.grafico2.leyenda"
+              >
+              </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-6">
+      <div class="card">
+          <div class="card-body">
+              
+            <app-grafico-dona [chartData]="this.graficos.grafico3.data" 
+                              [chartLabels]="this.graficos.grafico3.labels" 
+                              [chartType]="this.graficos.grafico3.type"
+                              [leyenda]="this.graficos.grafico3.leyenda"
+            >
+            </app-grafico-dona>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="col-6">
+      <div class="card">
+          <div class="card-body">
+              
+            <app-grafico-dona [chartData]="this.graficos.grafico4.data" 
+                              [chartLabels]="this.graficos.grafico4.labels" 
+                              [chartType]="this.graficos.grafico4.type"
+                              [leyenda]="this.graficos.grafico4.leyenda"
+            >
+            </app-grafico-dona>
+
+          </div>
+      </div>
+  </div>
+
+</div>
