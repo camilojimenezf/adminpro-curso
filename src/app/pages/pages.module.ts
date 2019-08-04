@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { FormsModule} from '@angular/forms';
+
 import { SharedModule } from '../shared/shared.module';
 
 //ng2 charts
@@ -16,6 +17,8 @@ import { PAGES_ROUTES } from './pages.routes';
 
 //temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 
@@ -29,7 +32,9 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
         PagesComponent,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports:[
         //se deben exportar todos los componentes que se usaran en otras partes que no sean los componentes registrados en este modulo
