@@ -15,10 +15,15 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 
 import { PAGES_ROUTES } from './pages.routes';
 
+//Pipes Module
+import { PipesModule } from '../pipes/pipes.module';
+
 //temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -34,7 +39,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraficoDonaComponent,
         AccountSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     exports:[
         //se deben exportar todos los componentes que se usaran en otras partes que no sean los componentes registrados en este modulo
@@ -43,10 +49,12 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         Graficas1Component,
     ],
     imports:[
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ]
 })
 export class PagesModule {}

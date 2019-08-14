@@ -18,9 +18,6 @@ import { ServiceModule } from './services/service.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
