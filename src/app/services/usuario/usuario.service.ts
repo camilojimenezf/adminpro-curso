@@ -114,8 +114,10 @@ export class UsuarioService {
       map((response:any)=>{
 
         //this.usuario=response.usuario;
-        let usuarioDB:Usuario=response.usuario;
-        this.guardarStorage(usuario._id,this.token,usuarioDB);
+        if(usuario._id===this.usuario._id){ //solo si el usuario actualizado es el mismo que esta logeado se actualiza el localStorage
+          let usuarioDB:Usuario=response.usuario;
+          this.guardarStorage(usuario._id,this.token,usuarioDB); 
+        }
         swal('Usuario actualizado', usuario.nombre, 'success');
 
         return true;
@@ -138,5 +140,36 @@ export class UsuarioService {
         console.log(response);
       })
     
+  }
+
+  cargarUsuarios(desde:number=0){
+
+    let url=URL_SERVICIOS+'/usuario?desde='+desde;
+
+    return this.http.get(url);
+
+  }
+
+  buscarUsuarios(termino:string){
+    
+    let url=URL_SERVICIOS+'/busqueda/coleccion/usuarios/'+termino;
+    return this.http.get(url).pipe(
+      map((response:any)=>{
+        return response.usuarios;
+      })
+    );
+  }
+  
+  borrarUsuario(id: string){
+
+    let url=URL_SERVICIOS+'/usuario/'+id;
+    url+='?token='+this.token;
+
+    return this.http.delete(url).pipe(
+      map((response:any)=>{
+        swal('Usuario borrado',`El usuario ${response.usuario.nombre} a sido eliminado correctamente`,'success');
+        return true;
+      })
+    );
   }
 }
