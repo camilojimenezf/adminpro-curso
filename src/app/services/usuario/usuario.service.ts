@@ -25,6 +25,26 @@ export class UsuarioService {
     this.cargarStorage();
   }
 
+  renuevaToken(){
+
+    let url= URL_SERVICIOS+ 'login/renuevatoken';
+    url+='?token='+this.token;
+
+    return this.http.get(url).pipe(
+      map((response:any)=>{
+        this.token=response.token;
+        localStorage.setItem('token',this.token);
+        
+        return true;
+      })
+      ,catchError(error=>{
+        this.router.navigate(['/login']);
+        swal('No se pudo renovar token','No fue posible renovar token','error');
+        throw error;
+      })
+    );
+  }
+
   estaLogeado(){
     return ( this.token.length > 5 ) ? true : false; //el 5 es por poner algun valor ya que si existe un token obviamente va a tener un largo mayor a 5
   }
